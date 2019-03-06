@@ -19,6 +19,7 @@ function getWindSpeed(obj) {
     return obj.wind.speed;
 }
 function getSunrise(obj) {
+    return obj.sys.sunrise;
 }
 
 
