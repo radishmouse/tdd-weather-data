@@ -5,7 +5,10 @@ function getLocationCountry() {}
 function getLocationLatitude() {}
 function getLocationLongitude() {}
 function getDescription() {}
-function getWindSpeed() {}
+// getWindSpeed function returns the given city's wind speed
+function getWindSpeed(city) {
+    return city.wind.speed;
+}
 function getSunrise() {}
 
 
