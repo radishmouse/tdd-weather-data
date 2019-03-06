@@ -4,7 +4,10 @@ function getLocationName() {}
 function getLocationCountry() {}
 function getLocationLatitude() {}
 function getLocationLongitude() {}
-function getDescription() {}
+// getDescription function returns the city's current weather state
+function getDescription(city) {
+    return city.weather[0].description;
+}
 function getWindSpeed() {}
 function getSunrise() {}
 
