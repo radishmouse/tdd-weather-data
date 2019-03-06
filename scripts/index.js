@@ -13,6 +13,7 @@ function getLocationLongitude(obj) {
     return obj.coord.lon;
 }
 function getDescription(obj) {
+    return obj.weather[0].description;
 }
 function getWindSpeed(obj) {
 }
