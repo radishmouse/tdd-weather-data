@@ -14,13 +14,18 @@ function getLocationLongitude(data) {
     return data.coord.lon;
 }
 function getDescription(data) {
-    return weather.description;
+    return data.weather[0].description;
 }
-function getWindSpeed() {}
-function getSunrise() {}
+function getWindSpeed(data) {
+    return data.wind.speed;
+}
+function getSunrise(data) {
+    return data.sys.sunrise;
+}
 
 // console.log(`The location is ${getLocationName(atlWeather)}`);
 // console.log(getLocationCountry(atlWeather));
+// console.log(atlWeather.weather.description);
 // Please ignore the following
 try {
     module.exports = {
