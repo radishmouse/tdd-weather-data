@@ -1,5 +1,6 @@
 
 // Implement the following functions to fulfill the tests!
+
 function getLocationName(data) {
         return data.name;
         }
@@ -12,8 +13,9 @@ function getLocationLatitude(data) {
 function getLocationLongitude(data) {
         return data.coord.lon;
 }
-function getDescription() {}
-
+function getDescription(city) {
+    return city.weather[0].description;
+}
 // getWindSpeed function returns the given city's wind speed
 function getWindSpeed(city) {
     return city.wind.speed;
@@ -23,6 +25,7 @@ function getWindSpeed(city) {
 function getSunrise(city) {
     return city.sys.sunrise;
 }
+
 
 
 
