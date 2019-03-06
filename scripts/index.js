@@ -7,6 +7,7 @@ function getLocationCountry(obj) {
     return obj.sys.country;
 }
 function getLocationLatitude(obj) {
+    return obj.coord.lat;
 }
 function getLocationLongitude(obj) {
 }
