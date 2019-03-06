@@ -10,6 +10,7 @@ function getLocationLatitude(obj) {
     return obj.coord.lat;
 }
 function getLocationLongitude(obj) {
+    return obj.coord.lon;
 }
 function getDescription(obj) {
 }
