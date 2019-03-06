@@ -1,15 +1,32 @@
 
 // Implement the following functions to fulfill the tests!
-function getLocationName() {}
-function getLocationCountry() {}
-function getLocationLatitude() {}
-function getLocationLongitude() {}
-// getDescription function returns the city's current weather state
+
+function getLocationName(data) {
+        return data.name;
+        }
+function getLocationCountry(data) {
+        return data.sys.country;
+}
+function getLocationLatitude(data) {
+        return data.coord.lat;
+}
+function getLocationLongitude(data) {
+        return data.coord.lon;
+}
 function getDescription(city) {
     return city.weather[0].description;
 }
-function getWindSpeed() {}
-function getSunrise() {}
+// getWindSpeed function returns the given city's wind speed
+function getWindSpeed(city) {
+    return city.wind.speed;
+}
+
+// getSunrise function gets the sunrise data of city
+function getSunrise(city) {
+    return city.sys.sunrise;
+}
+
+
 
 
 // Please ignore the following
