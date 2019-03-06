@@ -13,12 +13,17 @@ function getLocationLongitude(data) {
         return data.coord.lon;
 }
 function getDescription() {}
-function getWindSpeed() {}
+
+// getWindSpeed function returns the given city's wind speed
+function getWindSpeed(city) {
+    return city.wind.speed;
+}
 
 // getSunrise function gets the sunrise data of city
 function getSunrise(city) {
     return city.sys.sunrise;
 }
+
 
 
 // Please ignore the following
