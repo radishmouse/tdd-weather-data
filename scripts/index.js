@@ -93,6 +93,7 @@ function sunInfo(object, timeOfDay) {
 
 }
 
+// add correctly formatted dates to the page
 function formatDate(date) {
     const day = date.getDate();
     // month starts at 0
