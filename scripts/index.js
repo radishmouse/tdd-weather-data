@@ -108,3 +108,11 @@ weatherDiv.append(sunrise);
 const sunset = document.createElement('p');
 sunset.textContent = `Sunset: ${convertTime(getSunset(atlWeather))}`;
 weatherDiv.append(sunset);
+
+const map = document.createElement('iframe');
+map.setAttribute('width', '100%');
+map.setAttribute('height', 450);
+map.setAttribute('frameborder', 0);
+map.setAttribute('style', 'border:0');
+map.setAttribute('src', `http://maps.google.com/maps?q=${getLocationLatitude(atlWeather)}, ${getLocationLongitude(atlWeather)}&z=15&output=embed`);
+weatherDiv.append(map);
