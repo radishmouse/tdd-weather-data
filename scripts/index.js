@@ -80,3 +80,40 @@ function addMap(object) {
 
 }
 addMap(atlWeather);
+
+function sunInfo(object, timeOfDay) {
+
+    // get sunrise and sunset info
+    const timeData = object.sys[timeOfDay];
+
+    // convert to standard date format
+    const sunriseTime = new Date(timeData * 1000);
+
+    return sunriseTime;
+
+}
+
+function formatDate(date) {
+    const day = date.getDate();
+    // month starts at 0
+    const month = date.getMonth() + 1;
+    console.log(month);
+    const hours = date.getHours();
+    let minutes =  date.getMinutes();
+
+    // if statement to reformat minutes
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+
+    const seconds = date.getSeconds();
+
+    const formatted = `${hours}:${minutes}:${seconds}`;
+    const monthDayYear = `${month}/${day}/2019`;
+
+
+    return monthDayYear + ' ' + formatted;
+}
+
+addToWeather('Sunrise time: ' + (formatDate(sunInfo(atlWeather, 'sunrise'))));
+addToWeather('Sunset time: ' + (formatDate(sunInfo(atlWeather, 'sunset'))));
