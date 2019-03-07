@@ -4,6 +4,9 @@
 function getLocationName(weather) {
   const city = new Map();
   const cityValues = Object.values(weather); // array of city values
+  const cityName = document.querySelector("[data-city]");
+  cityName.textContent = `city name: ${cityValues[10]}`;
+  body.appendChild(cityName);
   return cityValues[10]; //city name is in index 10
 }
 
@@ -21,11 +24,75 @@ function getDescription(weather) {
   return weather.weather[0].description;
 }
 function getWindSpeed(weather) {
+  const windSpeed = document.querySelector("[data-wind]");
+  windSpeed.textContent = `wind speed: ${weather.wind.speed}`;
+  body.appendChild(windSpeed);
   return weather.wind["speed"];
 }
 function getSunrise(weather) {
   return weather.sys["sunrise"];
 }
+
+function getLocationTemp(weather) {
+  const cityTemp = document.querySelector("[data-temp]");
+  cityTemp.textContent = `city temp: ${weather.main.temp}`;
+  body.appendChild(cityTemp);
+  return weather.main.temp;
+}
+const aHeading = document.createElement("h1");
+const aDiv = document.createElement("div");
+// aDiv.textContent = "This is the div you created!";
+const body = document.querySelector("body");
+body.appendChild(aDiv);
+
+getLocationName(atlWeather);
+getLocationTemp(atlWeather);
+getWindSpeed(atlWeather);
+showIcon(returnURL(atlWeather));
+showMap(atlWeather);
+
+function returnURL(weather) {
+  // console.log(weather.weather[0].icon); //log the name of the icon
+  const URL = `http://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+  return URL;
+}
+function showIcon(iconURL) {
+  const weatherDiv = document.createElement("img");
+  // weatherDiv.textContent = `weather icon will be displayed here: ${iconURL}`;
+  weatherDiv.setAttribute("src", iconURL);
+  body.appendChild(weatherDiv);
+}
+
+function showMap(weather) {
+  const iFrameMap = document.querySelector("[data-map");
+  const lat = getLocationLatitude(weather);
+  const long = getLocationLongitude(weather);
+  const mapURL = `http://maps.google.com/maps?q=${lat},${long}&z=15&output=embed`;
+  iFrameMap.setAttribute("src", mapURL);
+}
+
+// weather.weather.icon => "01d"
+// http://openweathermap.org/img/w/10d.png
+// interpolated: `http://opnweathermap.org/img/w/${weather.weather.icon}.png`
+
+// const aDiv1 = document.getElementsByClassName("cityNameDiv");
+// aDiv1.textContent = "city name goes here";
+// city name located in atlWeather.name
+// const cityName = document.querySelector("[data-city]");
+// cityName.textContent = "city name goes here: ";
+// body.appendChild(cityName);
+
+// const aDiv2 = document.getElementsByClassName("temperatureDiv");
+// aDiv2.textContent = "city temp goes here";
+// const cityTemp = document.querySelector("[data-temp]");
+// cityTemp.textContent = "city temp goes here: ";
+// body.appendChild(cityTemp);
+
+// const aDiv3 = document.getElementsByClassName("windSpeedDiv");
+// aDiv3.textContent = "wind speed goes here";
+// const windSpeed = document.querySelector("[data-wind]");
+// windSpeed.textContent = "wind speed goes here: ";
+// body.appendChild(windSpeed);
 
 // Please ignore the following
 try {
