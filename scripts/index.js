@@ -54,3 +54,8 @@ const weatherDiv = document.querySelector('[data-weather]');
 const cityName = document.createElement('p');
 cityName.textContent = `City: ${getLocationName(atlWeather)}`;
 weatherDiv.append(cityName);
+
+const temperature = document.createElement('p');
+temperature.textContent = `Temperature: ${getTemperature(atlWeather)}℉`;
+weatherDiv.append(temperature);
+
