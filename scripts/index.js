@@ -59,3 +59,6 @@ const temperature = document.createElement('p');
 temperature.textContent = `Temperature: ${getTemperature(atlWeather)}℉`;
 weatherDiv.append(temperature);
 
+const windSpeed = document.createElement('p');
+windSpeed.textContent = `Windspeed: ${getWindSpeed(atlWeather)}`;
+weatherDiv.append(windSpeed);
