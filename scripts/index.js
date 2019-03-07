@@ -23,6 +23,9 @@ function getWindSpeed(obj) {
 function getSunrise(obj) {
     return obj.sys.sunrise;
 }
+function getTemperature(obj) {
+    return obj.main.temp;
+}
 
 
 // Please ignore the following
@@ -39,3 +42,12 @@ try {
 } catch (e) {
     
 }
+
+// Using the tdd-weather repo as your starter code, create and append DOM elements that show the following information:
+// city name
+// temperature
+// wind speed
+
+const weatherDiv = document.querySelector('[data-weather]');
+
+
