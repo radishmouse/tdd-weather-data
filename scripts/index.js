@@ -48,6 +48,7 @@ function addIcon(object) {
 }
 addIcon(atlWeather);
 
+// adds whatever data is passed to the weather div
 function addToWeather(data) {
     const newData = document.createElement('h2');
     newData.textContent = data;
@@ -59,19 +60,23 @@ addToWeather(addLocationName(atlWeather));
 addToWeather(addTemp(atlWeather));
 addToWeather(addWind(atlWeather));
 
+// creates map showing lat long of weather info
+function addMap(object) {
+    // get lat and long coordinates
+    const lat = object.coord.lat;
+    const lon = object.coord.lon;
+
+    const mapUrl = `http://maps.google.com/maps?q=${lat},${lon}&output=embed`;
+
+    // create iframe and set attributes
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', mapUrl);
+    iframe.setAttribute('width', '360');
+    iframe.setAttribute('height', '270');
+    iframe.setAttribute('frameborder', '0');
+
+    weatherDiv.append(iframe);
 
 
-// Please ignore the following
-try {
-    module.exports = {
-        getLocationName,
-        getLocationCountry,
-        getLocationLatitude,
-        getLocationLongitude,
-        getDescription,
-        getWindSpeed,
-        getSunrise
-    }
-} catch (e) {
-    
 }
+addMap(atlWeather);
