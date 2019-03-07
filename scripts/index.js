@@ -50,6 +50,17 @@ try {
 
 const weatherDiv = document.querySelector('[data-weather]');
 
+const url = 'http://openweathermap.org/img/w/11d.png'
+
+function weatherPic (obj) {
+    let weatherId = obj.cod;
+    // dont know how to use this to pick an website with the image since codes dont match icon website code.
+    let imgTag = document.createElement('img');
+    imgTag.setAttribute('src', url);
+    return imgTag;
+}
+
+weatherDiv.append(weatherPic(atlWeather))
 
 const cityName = document.createElement('p');
 cityName.textContent = `City: ${getLocationName(atlWeather)}`;
