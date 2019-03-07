@@ -4,48 +4,41 @@ console.log(weatherDiv);
 // Append location name to the weather div
 function addLocationName(object) {
     const location = object.name;
-    const newLocation = document.createElement('h2');
-    newLocation.textContent = `Location: ${location}`;
 
-    weatherDiv.append(newLocation);
+    return `Location: ${location}`;
 
 }
 
-addLocationName(atlWeather);
 
 // Add temperature to weather div
 
 function addTemp(object) {
     const temp = object.main.temp;
     const kToFTemp = (temp - 273.15) * (9/5) + 32;
-    const newTemp = document.createElement('h2');
-    newTemp.textContent = `Temperature: ${Math.round(kToFTemp)} degrees Fahrenheit`;
 
-    weatherDiv.append(newTemp);
-
-    console.log(Math.round(kToFTemp));
+    return `Temperature: ${Math.round(kToFTemp)}`;
 }
-addTemp(atlWeather); 
+
+function addWind(object) {
+    const wind = object.wind.speed;
+    const mphWind = wind * 2.237;
+
+    return `Wind speed(mph): ${Math.round(mphWind)}`;
 
 
-// function getLocationCountry(object) {
-//     return object.sys.country;
-// }
-// function getLocationLatitude(object) {
-//     return object.coord.lat;
-// }
-// function getLocationLongitude(object) {
-//     return object.coord.lon;
-// }
-// function getDescription(object) {
-//     return object.weather[0].description;
-// }
-// function getWindSpeed(object) {
-//     return object.wind.speed;
-// }
-// function getSunrise(object) {
-//     return object.sys.sunrise;
-// }
+}
+
+function addToWeather(data) {
+    const newData = document.createElement('h2');
+    newData.textContent = data;
+
+    weatherDiv.append(newData);
+}
+
+addToWeather(addLocationName(atlWeather));
+addToWeather(addTemp(atlWeather));
+addToWeather(addWind(atlWeather));
+
 
 
 // Please ignore the following
