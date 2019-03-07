@@ -19,14 +19,34 @@ function addTemp(object) {
     return `Temperature: ${Math.round(kToFTemp)}`;
 }
 
+// Add wind speed to weather div
+
 function addWind(object) {
     const wind = object.wind.speed;
     const mphWind = wind * 2.237;
 
     return `Wind speed(mph): ${Math.round(mphWind)}`;
+}
 
+// Add icon to weather div
+function addIcon(object) {
+    // get icon code from object
+    const iconCode = object.weather[0].icon;
+    const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+    const newIcon = document.createElement('img');
+    newIcon.setAttribute('src', iconUrl);
+    newIcon.classList.add('conditions');
+
+    const conditionsText = document.createElement('h2');
+    conditionsText.classList.add('conditions');
+    conditionsText.textContent = 'Current conditions: '
+
+    weatherDiv.append(conditionsText);
+    weatherDiv.append(newIcon);
 
 }
+addIcon(atlWeather);
 
 function addToWeather(data) {
     const newData = document.createElement('h2');
