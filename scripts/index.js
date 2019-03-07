@@ -1,8 +1,16 @@
-
-// Implement the following functions to fulfill the tests!
+const weatherDiv = document.querySelector('[data-weather]');
+console.log(weatherDiv);
+// Append location name to the weather div
 function getLocationName(object) {
-    return object.name;
+    const location = object.name;
+    const newLocation = document.createElement('h2');
+    newLocation.textContent = `Location: ${location}`;
+
+    weatherDiv.append(newLocation);
+
 }
+getLocationName(atlWeather);
+
 function getLocationCountry(object) {
     return object.sys.country;
 }
